@@ -1,0 +1,20 @@
+{
+  "name": "gif-getter",
+  "version": "1.0.0",
+  "description": "This site returns a gif based on a search term",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jjmakesthings/gif-getter.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jjmakesthings/gif-getter/issues"
+  },
+  "homepage": "https://github.com/jjmakesthings/gif-getter#readme"
+}
