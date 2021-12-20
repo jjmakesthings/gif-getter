@@ -5,23 +5,34 @@ const displayImage = function (imageSrc) {
   imageInput.src = imageSrc;
 };
 
-const getImage = function (searchTerm) {
-  let url = `https://api.giphy.com/v1/gifs/translate?api_key=${APIKey}&s=${searchTerm}`;
-  fetch(url, {
-    mode: "cors",
-  })
-    .then(function (response) {
-      return response.json();
-    })
-    .then(function (response) {
-      displayImage(response.data.images.original.url);
-      return response.data.images.original.url;
-    })
-    .catch(function (err) {
-      displayImage(
-        "https://media4.giphy.com/media/25RIHlF7bXOFhJOhfn/giphy.gif?cid=399005b5efce6c7c91d859e023a57fb5a8cb2e3a9105c3ec&rid=giphy.gif&ct=g"
-      );
-    });
+const getImage = async function (searchTerm) {
+  try {
+    const url = `https://api.giphy.com/v1/gifs/translate?api_key=${APIKey}&s=${searchTerm}`;
+    const response = await fetch(url, { mode: "cors" });
+    const data = await response.json();
+    const imageUrl = data.data.images.original.url;
+    displayImage(imageUrl);
+  } catch (err) {
+    displayImage(
+      "https://media4.giphy.com/media/25RIHlF7bXOFhJOhfn/giphy.gif?cid=399005b5efce6c7c91d859e023a57fb5a8cb2e3a9105c3ec&rid=giphy.gif&ct=g"
+    );
+  }
+
+  // fetch(url, {
+  //   mode: "cors",
+  // })
+  //   .then(function (response) {
+  //     return response.json();
+  //   })
+  //   .then(function (response) {
+  //     displayImage(response.data.images.original.url);
+  //     return response.data.images.original.url;
+  //   })
+  //   .catch(function (err) {
+  //     displayImage(
+  //       "https://media4.giphy.com/media/25RIHlF7bXOFhJOhfn/giphy.gif?cid=399005b5efce6c7c91d859e023a57fb5a8cb2e3a9105c3ec&rid=giphy.gif&ct=g"
+  //     );
+  //   });
 };
 
 // handle form submission
