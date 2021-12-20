@@ -1,10 +1,5 @@
 const APIKey = "xCKzllZ3eys3eJ1mkcdr1Cf2YNgIe8z9";
 
-const searchInput = document.getElementById("search__input");
-const getSearchTerm = function () {
-  return searchInput.value;
-};
-
 const imageInput = document.getElementById("returned-image");
 const displayImage = function (imageSrc) {
   imageInput.src = imageSrc;
@@ -23,17 +18,20 @@ const getImage = function (searchTerm) {
       return response.data.images.original.url;
     })
     .catch(function (err) {
-      console.log(err);
+      displayImage(
+        "https://media4.giphy.com/media/25RIHlF7bXOFhJOhfn/giphy.gif?cid=399005b5efce6c7c91d859e023a57fb5a8cb2e3a9105c3ec&rid=giphy.gif&ct=g"
+      );
     });
 };
 
-const findAndReturnGif = function (term) {
-  getImage(term);
-};
-
-document.getElementById("search__submit").addEventListener("click", () => {
-  let searchTerm = getSearchTerm();
-  findAndReturnGif(searchTerm);
+// handle form submission
+const form = document.getElementById("search");
+form.addEventListener("submit", (e) => {
+  e.preventDefault();
+  const searchTerm = form.elements[0].value;
+  if (typeof searchTerm == "string") {
+    getImage(searchTerm);
+  }
 });
 
 const copyToClipBoard = function () {
@@ -42,4 +40,4 @@ const copyToClipBoard = function () {
 };
 document.getElementById("copy").addEventListener("click", copyToClipBoard);
 
-findAndReturnGif("search");
+getImage("search");

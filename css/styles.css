@@ -1,10 +1,84 @@
+body {
+  background-color: whitesmoke;
+}
+
 h1 {
   text-align: center;
 }
 
 form {
   margin: 10px auto;
+  display: flex;
+  flex-direction: row;
+  border: 1px solid rgb(32 33 36 /28%);
+  height: 30px;
+  width: 50%;
+  max-width: 500px;
+  min-width: 200px;
+  border-radius: 20px;
+  background-color: white;
 }
-img {
+form:hover,
+form:active {
+  box-shadow: 0 1px 6px rgb(32 33 36 / 28%);
+}
+form:invalid {
+  background-color: rgb(233, 233, 233);
+}
+
+#search__submit {
+  border: none;
+  background-color: transparent;
+  padding: 0px 20px;
+  color: black;
+}
+form:valid #search__submit:hover,
+form:valid #search__submit:active {
+  border-top-right-radius: 20px;
+  border-bottom-right-radius: 20px;
+  background-color: rgb(106, 161, 154);
+  color: white;
+  cursor: pointer;
+}
+#search__input {
+  border: none;
+  background-color: transparent;
+  flex: 1;
+  text-align: center;
+  outline: none;
+}
+#search__input:focus {
+  border: none;
+}
+#image-wrapper {
+  height: 50vh;
+  width: 100%;
+  position: relative;
+}
+#returned-image {
+  display: block;
+  margin: 0;
+  width: 50%;
+  min-width: 240px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+#button-wrapper {
   margin: 10px auto;
+  text-align: center;
+}
+#copy {
+  all: unset;
+  border: 1px solid grey;
+  padding: 5px;
+  border-radius: 5px;
+}
+#copy:hover,
+#copy:active {
+  background-color: rgb(106, 161, 154);
+  color: white;
+  outline: none;
+  cursor: pointer;
 }

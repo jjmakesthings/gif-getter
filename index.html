@@ -11,12 +11,16 @@
 <body>
     <div id="container">
         <h1>Gif Machine</h1>
-        <form id="search">
+        <form action="#" id="search">
             <input id="search__input" type="text" maxlength="32" required>
-            <button id="search__submit" type="button">Submit</button>
+            <input id="search__submit" type="submit" value=&#128269;>
         </form>
-        <img id="returned-image">
-        <button id="copy">Copy to Clipboard</button>
+        <div id=image-wrapper>
+            <img id="returned-image">
+        </div>
+        <div id="button-wrapper">
+            <button id="copy">Copy</button>
+        </div>
     </div>
 </body>
 </html>
